@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    margin: 0;
+}
+
+.header {
+    overflow: hidden;
+    background-color: lightgreen;
+    padding: 20px 10px;
+}
+
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+}
+  
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+  
+.header a:hover {
+    background-color: #24ad59;
+    color: black;
+}
+  
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+  
+.header-right {
+    float: right;
+}
+  
+@media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+}
+
+section {
+    display: -webkit-flex;
+    display: flex;
+}
+  
+article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+}
+
+footer {
+    background-color: rgb(113, 185, 113);
+    padding: 10px;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+}
+
+.icon-bar {
+    width: 90px;
+    background-color: #ffeeee;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+  
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+  
+.icon-bar a:hover {
+    background-color: #6bf872;
+}
+  
+.active {
+    background-color: #04AA6D;
+}

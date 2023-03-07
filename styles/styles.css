@@ -5,6 +5,8 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
     margin: 0;
+    background-size: auto;
+    background-image: -webkit-radial-gradient(rgba(139, 190, 156, 0.5), rgb(251, 255, 29));
 }
 
 .header {
@@ -41,6 +43,14 @@ body {
   
 .header-right {
     float: right;
+}
+
+.header h2 {
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: black;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
 }
   
 @media screen and (max-width: 500px) {
@@ -92,7 +102,7 @@ footer {
 }
   
 .icon-bar a {
-    display: block;
+    display: flex;
     text-align: center;
     padding: 16px;
     transition: all 0.3s ease;

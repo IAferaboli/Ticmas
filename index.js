@@ -1,24 +1,44 @@
+const urlBase = "https://randomuser.me/api/";
 
-fetch("https://randomuser.me/api/")
-  .then(response => response.json())
-  const data = response.json()
-  console.log(data)
+const getData = async ()=> {
+  try {
+    const response = await fetch (urlBase);
+    const jsonResponse = await response.json();
 
-let uname = document.getElementById("name-user");
-let adress = document.getElementById("adress");
-let email = document.getElementById("email");
-let cellphone = document.getElementById("cellphone");
+    return jsonResponse;
 
-uname.innerHTML = data[0].name.first + data[0].name.last;
-/*adress.innerHTML = data.results.location.street.name + data.results.location.street.number;
-email.innerHTML = data.results.email;
-cellphone.innerHTML = data.results.cell;
+  } catch(error) {
+    console.log("El error es: ", error);
+  }
+};
+
+const uname = document.getElementById("name-user");
+const adress = document.getElementById("adress");
+const email = document.getElementById("email");
+const cellphone = document.getElementById("cellphone");
+const avatarPic = document.getElementById("avatar");
+const nationality = document.getElementById("nat");
+
+const resumeData = async ()=> {
+  const personalData = await getData();
+  console.log(personalData);
+
+  const getPersona = personalData.results[0];
+ 
+  uname.innerHTML = getPersona.name.first + ' ' + getPersona.name.last;
+  adress.innerHTML = getPersona.location.street.name + ' ' + getPersona.location.street.number;
+  email.innerHTML = getPersona.email;
+  cellphone.innerHTML = getPersona.cell;
+  nationality.innerHTML = getPersona.nat;
+
+};
+
+resumeData();
+
 
 document.getElementById('home').addEventListener('click', function() {
-    console.log('anda')
 
-    uname.innerHTML = data.results.name.first + data.results.name.last;
-    adress.innerHTML = data.results.location.street.name + data.results.location.street.number;
-    email.innerHTML = data.results.email;
-    cellphone.innerHTML = data.results.cell;
-});*/
+    resumeData();
+});
+
+
